@@ -1,0 +1,54 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %} {% endblock %}</title>
+	<link type = 'text/css' rel = 'stylesheet' href='{% static "css/base-home.css" %}'>
+		<style>
+		body
+		{
+			background: url("../static/img/wall.jpg") no-repeat;
+			background-size: cover;
+		}
+		#button
+		{
+			display: inline-block;
+			color: white;
+			width: 300px;
+			font-size: 25px;
+			font-weight: bold;
+			position: relative;
+			left: 700px;
+		}
+		#button span
+		{
+			padding: 10px 30px;
+			text-align: center;
+
+		}
+		#button span a
+		{
+			text-decoration: none;
+			color: white;
+		}
+
+		#button span:hover
+		{
+			background-color: #438346;
+		}
+	</style>
+</head>
+<body>
+	<div id = 'header'>
+		<span class = 'logo'>Bookmarks</span>
+		<div id = 'button'>
+			<span><a href= './account/login'>Login</a></span>
+			<span>Sign Up</span>
+		</div>
+	</div>
+	<div id = 'content'>
+		{% block content %} {% endblock %}
+	</div>
+</body>
+</html>
