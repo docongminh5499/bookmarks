@@ -5,10 +5,43 @@
 	<meta charset="UTF-8">
 	<title>{% block title %} {% endblock %}</title>
 	<link type = 'text/css' rel = 'stylesheet' href='{% static "css/base.css" %}'>
+	<style>
+		.errors
+		{
+			color: white;
+			background-color: #CE3945;
+			padding: 15px;
+			opacity: 0.7;
+			font-size: 16px;
+			text-align: left;
+		}
+		.something
+		{
+			display: inline-block;
+			color: white;
+			width: 300px;
+			font-size: 25px;
+			font-weight: bold;
+			position: relative;
+			left: 700px;
+		}
+		.something span
+		{
+			padding: 10px 30px;
+			text-align: center;
+
+		}
+		.something a
+		{
+			text-decoration: none;
+			color: white;
+		}
+	</style>
 </head>
 <body>
 	<div id = 'header'>
 		<span class = 'logo'>Bookmarks</span>
+		<span class = 'something'>{% block something %} {% endblock %}</span>
 	</div>
 	<div id = 'content'>
 		{% block content %} {% endblock %}
