@@ -5,7 +5,7 @@
 	font-family: Helvetica;
 }
 
-#header
+.header
 {
 	height: 100px;
 	width: auto;
@@ -17,6 +17,7 @@
 .logo
 {
 	color: white;
+	text-decoration: none;
 	font-weight: bold;
 	font-size: 40px;
 	line-height: 100px;
@@ -37,3 +38,16 @@ input:focus
 	outline: none;
 }
 
+.button
+{
+	display: inline-block;
+	color: white;
+	width: 100px;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.button:hover
+{
+	background-color: #438346;
+}

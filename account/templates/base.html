@@ -36,12 +36,56 @@
 			text-decoration: none;
 			color: white;
 		}
+		.selected
+		{
+			color: #316E38;
+		}
+		.menu
+		{
+			display: inline-block;
+			margin-left: 250px;
+		}
+		.menu li, li a
+		{
+			display: inline-block;
+			width: 130px;
+			text-align: center;
+			color:white;
+			font-size: 20px;
+			text-decoration: none;
+			height: 40px;
+			font-weight: bold;
+		}
 	</style>
 </head>
 <body>
-	<div id = 'header'>
-		<span class = 'logo'>Bookmarks</span>
-		<span class = 'something'>{% block something %} {% endblock %}</span>
+	<div class = 'header'>
+		<span>
+			<a class = "logo" style="text-decoration: none;"
+			href = '{% if request.user.is_authenticated %} {% url "account:dashboard" %} {% else %} {% url "home:home" %} {% endif %}'>
+				Bookmarks
+			</a>
+		</span>
+		{% if request.user.is_authenticated %}
+			<span> <ul class = 'menu'>
+				<li {% if section == 'dashboard' %} class='selected' {% endif %}>
+					<a href="{% url 'account:dashboard'%}">My Dashboard</a></li>
+
+				<li {% if section == 'images' %} class='selected' {% endif %}>
+					<a href="{% url 'account:dashboard'%}">Images</a></li>
+
+				<li {% if section == 'people' %} class='selected' {% endif %}>
+					<a href="{% url 'account:dashboard'%}">People</a></li>
+			</ul>
+		</span>
+
+		<span class = 'menu' style = 'margin-left: 150px;'>
+				<li>Hello, {{request.user.first_name}}</li>
+				<li><a href = '{% url "account:logout" %}'>Logout</a></li>
+		</span>
+		{% else %}
+			<span class = 'something'>{% block something %} {% endblock %}</span>
+		{% endif %}
 	</div>
 	<div id = 'content'>
 		{% block content %} {% endblock %}
