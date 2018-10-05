@@ -59,7 +59,7 @@
 	</style>
 </head>
 <body>
-	<div class = 'header'>
+	<div id = 'header'>
 		<span>
 			<a class = "logo" style="text-decoration: none;"
 			href = '{% if request.user.is_authenticated %} {% url "account:dashboard" %} {% else %} {% url "home:home" %} {% endif %}'>
