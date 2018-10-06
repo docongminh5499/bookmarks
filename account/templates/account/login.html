@@ -13,17 +13,17 @@
 
 {% block content %}
 {% if request.user.is_authenticated %}
-<div style="height: auto; width: 800px; margin: 50px auto; padding: 100px">
-		<h1 style=" border-bottom: 1px solid grey; padding-bottom: 30px; ">
+<div class = 'message'>
+		<h1>
 			You have already logged in.
 		</h1>
-		<p  style="padding: 30px">
-			If you are not {{request.user.first_name}}, please log-out.
+		<p>
+			If you are not {{request.user.first_name}}, please <a href = '{% url "account:logout" %}' style="color: green; text-decoration: none">log-out</a>.
 		</p>
 </div>
 {% else %}
-<div style="height: auto; width: 400px; margin: 50px auto;">
-	<h1 style=" border-bottom: 1px solid grey; padding-bottom: 30px; ">Login</h1>
+<div class = 'login'>
+	<h1>Login</h1>
 	<div style="padding: 30px">
 		{% if form.errors %}
 			<div class = 'errors'>
@@ -35,22 +35,14 @@
 			{% csrf_token %}
 			{% for i in form %}
 				{{i.errors}}
-				<p style="padding: 8px; font-size: 20px;"> {{i.label_tag}}</p>
-				<p style="padding: 8px; font-size: 20px;"> {{i}} </p>
+<!-- 				<p style="padding: 8px; font-size: 20px;"> {{i.label_tag}}</p> -->
+				<p style="padding: 8px; font-size: 20px; margin-top: 20px;"> {{i}} </p>
 			{% endfor %}
 			<div style="margin-top: 30px;">
-				<input type="submit" value = 'LOG-IN' 
-				style=" padding: 10px;
-						color: white;
-						background-color: #60C566;
-						font-size: 16px;
-						margin: 20px;
-						margin-left: 15px;
-						font-weight: bold;
-						border-radius: 10px">
+				<input type="submit" value = 'LOG-IN' class = "button123" >
 			</div>
 			<input type = 'hidden' name = 'next' value = '{{ next }}'></input>
-			<p style="text-align: center;">
+			<p style="text-align: center; ">
 				<a href = '.'
 					style=" color: green; text-decoration: none; font-weight: bold">
 					Forget password?

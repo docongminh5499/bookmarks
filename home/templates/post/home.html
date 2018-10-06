@@ -1,23 +1,41 @@
 {% extends 'base-home.html' %}
 
-{% block title %} 
+{% block title %}
 	Home - Bookmarks
 {% endblock %}
 
-{% block content %}
-<div style="background-color: #EFEFEF; opacity: 0.8; padding: 40px; margin-top: 100px; ">
-	 <h1 style = 'width: 700px;
-				  margin: 10px 250px;
-				  margin-bottom: 10px;
-				  color: white; 
-				  font-size: 100px;
-				  text-shadow: 1px 2px 4px black, -1px -2px 4px black'>Join me now</h1>
+{% block bar%}
+{% if request.user.is_authenticated %}
 
-	<h3 style = 'width: 700px;
-				  margin: 10px 400px; 
-				  color: white; 
-				  font-size: 30px;
-				  text-shadow: 1px 2px 4px black, -1px -2px 4px black'>
-				  Sign up free now to join us today</h3>
+	<div id = 'button'>
+		<span>Hello, {{ request.user.first_name }}</span>
+	</div>
+{% else %}
+	<div id = 'button'>
+			<span><a href= './account/login'>Login</a></span>
+			<span>Sign Up</span>
+	</div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+
+{% else %}
+	<div style="background-color: #EFEFEF; opacity: 0.8; padding: 40px; margin-top: 100px; ">
+		 <h1 style = 'width: 700px;
+					  margin: 10px 250px;
+					  margin-bottom: 10px;
+					  color: white; 
+					  font-size: 100px;
+					  text-shadow: 1px 2px 4px black, -1px -2px 4px black'>Join me now</h1>
+
+		<h3 style = 'width: 700px;
+					  margin: 10px 400px; 
+					  color: white; 
+					  font-size: 30px;
+					  text-shadow: 1px 2px 4px black, -1px -2px 4px black'>
+					  Sign up free now to join us today</h3>
+{% endif %}
 </div>
 {% endblock %}

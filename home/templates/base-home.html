@@ -6,11 +6,14 @@
 	<title>{% block title %} {% endblock %}</title>
 	<link type = 'text/css' rel = 'stylesheet' href='{% static "css/base-home.css" %}'>
 		<style>
-		body
-		{
-			background: url("{% static 'img/wall.jpg' %}") no-repeat;
-			background-size: cover;
-		}
+		{% if request.user.is_authenticated %}
+		{% else %}
+			body
+			{
+				background: url("{% static 'img/wall.jpg' %}") no-repeat;
+				background-size: cover;
+			}
+		{% endif %}
 		#button
 		{
 			display: inline-block;
@@ -41,11 +44,8 @@
 </head>
 <body>
 	<div id = 'header'>
-		<span class = 'logo'>Bookmarks</span>
-		<div id = 'button'>
-			<span><a href= './account/login'>Login</a></span>
-			<span>Sign Up</span>
-		</div>
+		<span class = 'logo'><a href = "{% url 'home:home' %}" style = 'color:white; text-decoration: none;'>Bookmarks</a></span>
+		{% block bar %}{% endblock %}
 	</div>
 	<div id = 'content'>
 		{% block content %} {% endblock %}

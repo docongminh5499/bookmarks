@@ -17,10 +17,32 @@
 .logo
 {
 	color: white;
+	text-decoration: none;
 	font-weight: bold;
 	font-size: 40px;
 	line-height: 100px;
 	padding-left: 50px;
+}
+
+
+.button123
+{
+	margin: 20px;
+	margin-left: 120px;
+	padding: 10px;
+	color: white;
+	background-color: #60C566;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 10px;
+	border: none;
+	width: 100px;
+}
+
+.button123:focus
+{
+	background-color: #17D124;
+	border:none;
 }
 
 input, textarea
@@ -28,13 +50,29 @@ input, textarea
 	width: 300px;
 	font-size: 18px;
 	padding: 10px;
-	border: none;
-	background-color: #EFEFEF;
+	border-radius: 20px;
+	border: 1px solid black;
+
 }
 
-input:focus
+.login input:focus
 {
 	outline: none;
+	border: 1px solid green;
+}
+
+.button
+{
+	display: inline-block;
+	color: white;
+	width: 100px;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.button:hover
+{
+	background-color: #438346;
 }
 
 .errors
@@ -42,7 +80,77 @@ input:focus
 	color: white;
 	background-color: #CE3945;
 	padding: 15px;
-	font-size: 25px;
-	text-align: center;
 	opacity: 0.7;
+	font-size: 16px;
+	text-align: left;
+}
+.something
+{
+	display: inline-block;
+	color: white;
+	width: 300px;
+	font-size: 25px;
+	font-weight: bold;
+	position: relative;
+	left: 700px;
+}
+.something span
+{
+	padding: 10px 30px;
+	text-align: center;
+
+}
+.something a
+{
+	text-decoration: none;
+	color: white;
+}
+.selected
+{
+	color: #316E38;
+}
+.menu
+{
+	display: inline-block;
+	margin-left: 250px;
+}
+.menu li, li a
+{
+	display: inline-block;
+	width: 130px;
+	text-align: center;
+	color:white;
+	font-size: 20px;
+	text-decoration: none;
+	height: 40px;
+	font-weight: bold;
+}
+
+.login
+{
+	height: auto; width: 400px; margin: 50px auto;
+	border: 1px solid green;
+	border-radius: 5px;
+}
+
+.login h1
+{
+	background-color: #60C566;
+	color: white;
+	padding: 30px;
+	padding-left: 50px;
+}
+.message
+{
+	margin:100px;
+}
+
+.message h1
+{
+	border-bottom: 1px solid grey; padding-bottom: 30px;
+}
+
+.message p
+{
+	font-size: 18px; margin-top: 30px;
 }
