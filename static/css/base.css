@@ -66,7 +66,7 @@ input, textarea
 	display: inline-block;
 	color: white;
 	width: 100px;
-	font-size: 25px;
+	font-size: 16px;
 	font-weight: bold;
 }
 
@@ -89,7 +89,7 @@ input, textarea
 	display: inline-block;
 	color: white;
 	width: 300px;
-	font-size: 25px;
+	font-size: 16px;
 	font-weight: bold;
 	position: relative;
 	left: 700px;
@@ -120,7 +120,7 @@ input, textarea
 	width: 130px;
 	text-align: center;
 	color:white;
-	font-size: 20px;
+	font-size: 16px;
 	text-decoration: none;
 	height: 40px;
 	font-weight: bold;

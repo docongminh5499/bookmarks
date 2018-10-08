@@ -28,6 +28,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['minhdo5499.pythonanywhere.com', '127.0.0.1', 'localhost']
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'meo123zzz@gmail.com'
+EMAIL_HOST_PASSWORD = 'qkpbozeapocxcibs'
+EMAIL_PORT = 587 #465 for SSL
+EMAIL_USE_TLS = True
 
 LOGIN_REDIRECT_URL = reverse_lazy('account:dashboard')
 LOGIN_URL = reverse_lazy('account:login')
@@ -36,8 +41,8 @@ LOGOUT_URL = reverse_lazy('account:logout')
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -55,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'bookmarks.urls'
 
