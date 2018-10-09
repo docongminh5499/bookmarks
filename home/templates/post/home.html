@@ -8,12 +8,21 @@
 {% if request.user.is_authenticated %}
 
 	<div id = 'button'>
-		<span>Hello, {{ request.user.first_name }}</span>
+		<span class = 'container'>
+			Hello, {{ request.user.first_name }}
+			<ul>
+				<li><a href = "{% url 'account:dashboard'%}">My dashboard</a></li>
+				<li><a href = '.'>People</a></li>
+				<li><a href = '.'>Images</a></li>
+				<li><a href = '{%url "account:password_change"%}'>Change password</a></li>
+				<li><a href = "{% url 'account:logout' %}">Logout</a></li>
+			</ul>
+		</span>
 	</div>
 {% else %}
 	<div id = 'button'>
-			<span><a href= './account/login'>Login</a></span>
-			<span>Sign Up</span>
+			<span><a href= '{% url "account:login" %}'>Login</a></span>
+			<span><a href = "{% url 'account:register'%}">Sign Up</a></span>
 	</div>
 {% endif %}
 {% endblock %}

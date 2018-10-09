@@ -15,5 +15,5 @@ urlpatterns = [
 		url(r'password_reset_complete/', auth_view.PasswordResetCompleteView.as_view(template_name = 'account/password_reset_complete.html'), name = 'password_reset_complete'),
 		re_path(r'password_reset_confirm_(?P<uidb64>[-\w]+)_(?P<token>[-\w]+)', auth_view.PasswordResetConfirmView.as_view(template_name = 'account/password_reset_confirm.html',  success_url = reverse_lazy('account:password_reset_complete')), name = 'password_reset_confirm'),
 		url(r'password_reset', auth_view.PasswordResetView.as_view(template_name = 'account/password_reset_form.html', email_template_name = 'account/password_reset_email.html', success_url = reverse_lazy('account:password_reset_done')), name = 'password_reset'),
-		
+		path(r'register', views.register, name = 'register'),
 ]

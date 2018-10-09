@@ -70,10 +70,7 @@ input, textarea
 	font-weight: bold;
 }
 
-.button:hover
-{
-	background-color: #438346;
-}
+
 
 .errors
 {
@@ -89,7 +86,7 @@ input, textarea
 	display: inline-block;
 	color: white;
 	width: 300px;
-	font-size: 16px;
+	font-size: 20px;
 	font-weight: bold;
 	position: relative;
 	left: 700px;
