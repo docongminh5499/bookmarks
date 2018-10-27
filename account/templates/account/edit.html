@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit profile{% endblock%}
+
+{% block content %}
+	<div class = 'message'>
+		<h1>Edit yout account</h1>
+		<p>Please enter information below</p>
+		<form method="POST" enctype="multipart/form-data">
+			{{user_form.as_p}}
+			{{profile_form.as_p}}
+			{% csrf_token %}
+			<input type="submit" value = 'Save changes' class = 'button123' style="width: 200px;">
+		</form>
+	</div>
+{% endblock%}

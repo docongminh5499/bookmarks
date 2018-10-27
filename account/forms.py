@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
+from .models import Profile
 
 class LoginForm (AuthenticationForm):
 	username = forms.CharField(widget = forms.TextInput(attrs = {'placeholder': 'Username'}))
@@ -21,3 +22,13 @@ class Register (forms.ModelForm):
 		if (cd['password1'] != cd['password2']):
 			raise forms.ValidationError("Password dont match")
 		return cd['password2']
+
+class UserEditForm(forms.ModelForm):
+	class Meta:
+		model = User
+		fields = ('first_name', 'last_name', 'email')
+
+class ProfileEditForm(forms.ModelForm):
+	class Meta:
+		model= Profile
+		fields = ('date_of_birth', 'photo')

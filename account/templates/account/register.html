@@ -10,6 +10,7 @@
 			{% csrf_token %}
 			<div style = 'padding-left: 50px;'>
 			{% for i in form %}
+				<p>{{i.errors}}</p>
 				<p>{{i.label_tag}}</p>
 				<p>{{i}}</p>
 			{% endfor %}

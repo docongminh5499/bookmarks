@@ -26,7 +26,7 @@ SECRET_KEY = 'y)3wv&^6$_ld*jc4jq7uk8m46+6q67hu_^&cl__g(kmv^x!7@i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['minhdo5499.pythonanywhere.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['minhdo5499.pythonanywhere.com', '127.0.0.1', 'localhost', 'mysite.com']
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'meo123zzz@gmail.com'
@@ -38,6 +38,16 @@ LOGIN_REDIRECT_URL = reverse_lazy('account:dashboard')
 LOGIN_URL = reverse_lazy('account:login')
 LOGOUT_URL = reverse_lazy('account:logout')
 
+
+SOCIAL_AUTH_FACEBOOK_KEY = "322552095203056"
+SOCIAL_AUTH_FACEBOOK_SECRET = "1507cdd786e8dcfa3d626fab5a98165b"
+
+AUTHENTICATION_BACKENDS = [
+                'django.contrib.auth.backends.ModelBackend',
+                'social_core.backends.facebook.FacebookOAuth2',
+]
+
+SECURE_SSL_REDIRECT = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -49,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account',
     'home',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 
@@ -75,6 +87,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -133,3 +148,7 @@ USE_TZ = True
 STATIC_URL = '/Bookmarks/static/'
 
 STATIC_ROOT = "/Bookmarks/static/"
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
